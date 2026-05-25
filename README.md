@@ -14,18 +14,32 @@
 
 ```
 AI_kadai1/
-├── README.md        # このファイル
-└── overview.md      # 課題の詳細な解説ノート（イジング模型・厳密解・手法の説明）
+├── README.md         # このファイル
+├── CLAUDE.md         # Claude Code 向けプロジェクト設定
+├── overview.md       # 課題の要点（モデル・手法・成果物チェックリスト）
+├── background.md     # 背景・歴史的解説（オンサーガー解・MCMC・有限サイズスケーリング理論）
+├── docs/
+│   └── worklog.md    # 作業日誌
+└── .vscode/
+    └── settings.json # VS Code マークダウン数式レンダリング設定
 ```
 
-## 課題の背景
+## ドキュメントの読み方
 
-2次元イジング模型は磁性体の相転移を記述する最も基本的な模型の一つです。
-1944年にオンサーガーが厳密解を導出しており、数値計算手法のベンチマークとして広く使われています。
-詳細は [overview.md](overview.md) を参照してください。
+| ファイル | 用途 |
+|----------|------|
+| [overview.md](overview.md) | まずここ。課題に必要な式・手順・チェックリスト |
+| [background.md](background.md) | 余裕があれば。理論的背景・歴史・導出 |
+
+## 数式の表示について
+
+マークダウン中の数式（`$...$` / `$$...$$`）を表示するには以下のいずれかが必要です：
+
+- **GitHub**：このリポジトリをブラウザで開けば自動で表示
+- **VS Code**：バージョン 1.88 以降。プロジェクト内の `.vscode/settings.json` で設定済み
 
 ## 参考文献
 
-- L. Onsager, Phys. Rev. **65**, 117 (1944)
-- N. Metropolis et al., J. Chem. Phys. **21**, 1087 (1953)
-- K. Binder, Z. Phys. B **43**, 119 (1981)
+- L. Onsager, Phys. Rev. **65**, 117 (1944)：2Dイジング模型の厳密解
+- N. Metropolis et al., J. Chem. Phys. **21**, 1087 (1953)：メトロポリスアルゴリズム
+- K. Binder, Z. Phys. B **43**, 119 (1981)：Binder キュムラント法
