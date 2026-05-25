@@ -19,7 +19,9 @@
 
 **比較基準（オンサーガー厳密解）：**
 
-$$\frac{T_c}{J} = \frac{2}{\ln(1+\sqrt{2})} \approx 2.2692$$
+$$
+\frac{T_c}{J} = \frac{2}{\ln(1+\sqrt{2})} \approx 2.2692
+$$
 
 ---
 
@@ -31,7 +33,7 @@ $$\frac{T_c}{J} = \frac{2}{\ln(1+\sqrt{2})} \approx 2.2692$$
 
 1. スピン $s_i$ を1つ選ぶ
 2. 反転時のエネルギー変化を計算：$\Delta E = 2 J s_i \sum_{j \in \partial i} s_j$
-3. 受理確率 $A = \min(1,\, e^{-\Delta E / T})$ で受理・棄却
+3. 受理確率 $A = \min(1,\ e^{-\Delta E / T})$ で受理・棄却
 
 ### モンテカルロステップ（MCS）
 
@@ -44,11 +46,18 @@ $$\frac{T_c}{J} = \frac{2}{\ln(1+\sqrt{2})} \approx 2.2692$$
 
 ## 計測する物理量
 
-$$m = \frac{1}{L^2}\sum_i s_i, \quad
-\chi = \frac{L^2}{T}\left(\langle m^2 \rangle - \langle |m| \rangle^2\right), \quad
-C = \frac{L^2}{T^2}\left(\langle E^2 \rangle - \langle E \rangle^2\right)$$
+$$
+m = \frac{1}{L^2}\sum_i s_i
+$$
 
-$$U_L = 1 - \frac{\langle m^4 \rangle}{3\langle m^2 \rangle^2} \quad \text{（Binder キュムラント）}$$
+$$
+\chi = \frac{L^2}{T}\left(\langle m^2 \rangle - \langle |m| \rangle^2\right), \qquad
+C = \frac{L^2}{T^2}\left(\langle E^2 \rangle - \langle E \rangle^2\right)
+$$
+
+$$
+U_L = 1 - \frac{\langle m^4 \rangle}{3\langle m^2 \rangle^2} \quad \text{（Binder キュムラント）}
+$$
 
 ---
 
@@ -58,7 +67,9 @@ $$U_L = 1 - \frac{\langle m^4 \rangle}{3\langle m^2 \rangle^2} \quad \text{（Bi
 
 **方法①：磁化率ピーク位置の外挿**（$\nu = 1$：2Dイジング模型の相関長指数）
 
-$$T^*(L) = T_c + a\, L^{-1/\nu}$$
+$$
+T^*(L) = T_c + a\, L^{-1/\nu}
+$$
 
 **方法②：Binder キュムラント交差**
 
