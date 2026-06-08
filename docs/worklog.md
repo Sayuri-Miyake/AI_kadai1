@@ -59,3 +59,70 @@ AI_kadai1/
 - [ ] ユニットテストの作成
 - [ ] 数値実験の実行と結果の整理
 - [ ] 有限サイズスケーリング解析
+
+---
+
+## 2026-06-01
+
+### 作業内容
+
+**Rust によるモンテカルロシミュレーション実装と可視化**
+
+1. **`simulation/` ディレクトリの新規作成（Rust プロジェクト）**
+   - `Cargo.toml`：クレート設定（依存：`rand`・`csv`）
+   - `src/ising.rs`：`IsingModel` 構造体の実装
+     - 指数テーブルの事前計算（$\exp(-\Delta E / k_B T)$）でホットループを高速化
+     - 周期境界条件の実装
+     - メトロポリス法による1スピンフリップ更新
+   - `src/observables.rs`：`Accumulator` 構造体の実装
+     - 磁化 $m$・磁化率 $\chi$・比熱 $C$・Binder キュムラント $U_4$ の逐次集計
+   - `src/main.rs`：温度スキャンのメインループ
+     - $L = 8, 16, 32, 64$ の4サイズを対象
+     - 各温度点でサーモ化ステップ後に物理量を測定し CSV 出力
+
+2. **ユニットテストの作成（11件）**
+   - エネルギー計算・$\Delta E$ 計算の正確性テスト
+   - 低温・高温極限における磁化の振る舞いテスト
+   - 全テストが `cargo test` でパスすることを確認
+
+3. **`simulation/results.html`：インタラクティブ可視化の作成**
+   - Plotly.js を用いた4パネル表示（磁化・磁化率・比熱・Binder キュムラント）
+   - ブラウザ単体で動作するスタンドアロン HTML
+
+4. **`background.md` の MCMC 節を拡充**
+   - マルコフ連鎖理論の記述追加
+   - Glauber ダイナミクス vs. メトロポリス法の比較
+   - 自己相関時間と臨界スローダウン（$\tau \sim L^z$）の説明追加
+
+5. **`.gitignore` の追加**
+   - Rust ビルド成果物（`target/`）と生成 CSV ファイルを除外
+
+### 現在のファイル構成
+
+```
+AI_kadai1/
+├── CLAUDE.md
+├── README.md
+├── overview.md
+├── background.md
+├── .gitignore
+├── docs/
+│   └── worklog.md    ← このファイル
+├── .vscode/
+│   └── settings.json
+└── simulation/       ← 新規追加
+    ├── Cargo.toml
+    ├── Cargo.lock
+    ├── results.html
+    └── src/
+        ├── main.rs
+        ├── ising.rs
+        └── observables.rs
+```
+
+### 次回以降の作業予定
+
+- [ ] シミュレーションの実行と CSV データの取得
+- [ ] 有限サイズスケーリング解析（$T_c$ 推定・臨界指数の確認）
+- [ ] ユニットテストのカバレッジ拡充
+- [ ] Python / Jupyter での解析スクリプト作成（必要に応じて）

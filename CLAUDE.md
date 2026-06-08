@@ -8,14 +8,25 @@
 
 ```
 AI_kadai1/
-├── CLAUDE.md         # このファイル（Claude Code 向け設定）
-├── README.md         # リポジトリ概要
-├── overview.md       # 課題の要点（モデル・手法・成果物チェックリスト）
-├── background.md     # 背景・歴史的解説（オンサーガー解・MCMC理論・FSS理論）
+├── CLAUDE.md              # このファイル（Claude Code 向け設定）
+├── README.md              # リポジトリ概要
+├── overview.md            # 課題の要点（モデル・手法・成果物チェックリスト）
+├── background.md          # 背景・歴史的解説（オンサーガー解・MCMC理論・FSS理論）
+├── .gitignore             # target/ と CSV ファイルを除外
 ├── docs/
-│   └── worklog.md    # 作業日誌
-└── .vscode/
-    └── settings.json # VS Code マークダウン数式レンダリング設定
+│   └── worklog.md         # 作業日誌
+├── .vscode/
+│   └── settings.json      # VS Code マークダウン数式レンダリング設定
+└── simulation/            # Rust モンテカルロシミュレーション
+    ├── Cargo.toml
+    ├── Cargo.lock
+    ├── results.html        # Plotly.js インタラクティブ可視化（4パネル）
+    ├── results.csv         # シミュレーション出力（.gitignore 対象）
+    ├── results_clean.csv   # 整形済み出力（.gitignore 対象）
+    └── src/
+        ├── main.rs         # 温度スキャン・CSV 出力
+        ├── ising.rs        # IsingModel（メトロポリス法・周期境界条件）
+        └── observables.rs  # Accumulator（m・χ・C・Binder キュムラント）
 ```
 
 ## コードスタイル
